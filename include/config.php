@@ -45,4 +45,8 @@
 	Name of the virtual directory the site runs in
 	*/
 	define('VIRTUAL_LOCATION', '/tshirtshop/');
+
+	// Configure product lists display options
+	define('SHORT_PRODUCT_DESCRIPTION_LENGTH', 150);
+	define('PRODUTS_PER_PAGE', 4);
 ?>
