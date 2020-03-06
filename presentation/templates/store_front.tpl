@@ -1,6 +1,7 @@
 {* smarty *} 
 {config_load file="configs/site.conf"}
 {load_presentation_object filename="store_front" assign="obj"}
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,12 +19,13 @@
 						</a>
 					</div>
 					<div id="contents">
-						Place contents here
+						{include file=$obj->mContentsCell}
 					</div>
 				</div>
 			</div>
 			<div>
 				{include file="departments_list.tpl"}
+				{include file=$obj->mCategoriesCell}
 			</div>
 		</div>
 	</body>
