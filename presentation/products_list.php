@@ -37,6 +37,10 @@ class ProductsList
 		{
 			trigger_error('Incorrect Page value');
 		}
+
+		// Save page request for continue shopping functionality
+		$_SESSION['link_to_continue_shopping'] = $_SERVER['QUERY_STRING'];
+
 	}
 
 	public function init()

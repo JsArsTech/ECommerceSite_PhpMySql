@@ -22,6 +22,18 @@ class DepartmentsList
         if (isset($_GET['DepartmentId']))
         {
             $this->mSelectedDepartment = (int)$_GET['DepartmentId'];            
+        } 
+        elseif (isset($_GET['ProductId']) && 
+            isset($_SESSION['link_to_continue_shopping']))
+        {
+            $continue_shopping =
+                Link::QueryStringArray($_SESSION['link_to_continue_shopping']);
+
+            if (array_key_exists('DepartmentId', $continue_shopping))
+            {
+                $this->mSelectedDepartment = 
+                    (int)$continue_shopping['DepartmentId'];
+            }
         }
     }
 
