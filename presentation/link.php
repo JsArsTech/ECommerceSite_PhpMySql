@@ -45,7 +45,7 @@ class Link
 
 	public static function ToProduct($productId)
 	{
-		return self:Build('index.php?ProductId=' . $productId);
+		return self::Build('index.php?ProductId=' . $productId);
 	}
 
 	public static function ToIndex($page = 1)

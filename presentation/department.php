@@ -1,6 +1,6 @@
 <?php
 
-require_once BUSSINES_DIR . 'catalog.php';
+require_once BUSINESS_DIR . 'catalog.php';
 // Deals with retrieving department details
 
 class Department
@@ -27,7 +27,7 @@ class Department
 		}
 
 		/* If CategoryId is in the query string we save it (casting it to integer to protect against invalid values) */
-		if (isset($_GET('CategoryId')))
+		if (isset($_GET['CategoryId']))
 		{
 			$this->_mCategoryId = (int)$_GET['CategoryId'];
 		}

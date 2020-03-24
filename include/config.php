@@ -48,5 +48,5 @@
 
 	// Configure product lists display options
 	define('SHORT_PRODUCT_DESCRIPTION_LENGTH', 150);
-	define('PRODUTS_PER_PAGE', 4);
+	define('PRODUCTS_PER_PAGE', 4);
 ?>

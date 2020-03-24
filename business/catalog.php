@@ -34,14 +34,14 @@ class Catalog
 		$params = array(':department_id' => $departmentId);
 
 		// Execute the query and return the results
-		return DatabaseHandler::GetRow($sql, $params);
+		return DatabaseHandler::GetAll($sql, $params);
 	}	
 
 	// Retrieves complete details for the specified category
 	public static function GetCategoryDetails($categoryId) 
 	{
 		// Build SQL query
-		$sql = 'CALL catalog_get_categories_details(:category_id)';
+		$sql = 'CALL catalog_get_category_details(:category_id)';
 
 		// Build the parameters array
 		$params = array(':category_id' => $categoryId);
@@ -86,7 +86,7 @@ class Catalog
 	{
 		// Query that returns the number of products in the category
 		$sql = 'CALL catalog_count_products_in_category(:category_id)';
-		$params = array(':category_id' => $departmentId);
+		$params = array(':category_id' => $categoryId);
 
 		// Calculate the number of pages required to display the products
 		$rHowManyPages = Catalog::HowManyPages($sql, $params);
@@ -100,10 +100,10 @@ class Catalog
 
 		// Build the parameters array
 		$params = array(
-			':category_id' => $departmentId,
+			':category_id' => $categoryId,
 			':short_product_description_length' => SHORT_PRODUCT_DESCRIPTION_LENGTH,
 			':products_per_page' => PRODUCTS_PER_PAGE,
-			':start_item' => $startItem);
+			':start_item' => $start_item);
 
 		// Execute the query and retur the results
 		return DatabaseHandler::GetAll($sql, $params);
@@ -133,14 +133,14 @@ class Catalog
 			':department_id' => $departmentId,
 			':short_product_description_length' => SHORT_PRODUCT_DESCRIPTION_LENGTH,
 			':products_per_page' => PRODUCTS_PER_PAGE,
-			':start_item' => $startItem);
+			':start_item' => $start_item);
 
 		// Execute the query and retur the results
 		return DatabaseHandler::GetAll($sql, $params);
 	}
 
 	// Retrieves the list of products on catalog page
-	public static function GetProductsOnCatalog($pageNo, &rHowManyPages)
+	public static function GetProductsOnCatalog($pageNo, &$rHowManyPages)
 	{
 		// Query that returns the number of products for the front catalog page
 		$sql = 'CALL catalog_count_products_on_catalog()';
@@ -190,7 +190,7 @@ class Catalog
 		$params = array(':product_id' => $productId);
 
 		// Execute the query and return the results
-		return DatabaseHandler::GetRow($sql, $params);
+		return DatabaseHandler::GetAll($sql, $params);
 	}
 }
 ?>

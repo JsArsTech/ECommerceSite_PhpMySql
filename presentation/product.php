@@ -24,7 +24,7 @@ class Product
 	public function init()
 	{
 		// Get product details from business tier
-		$this->mProdut = Catalog::GetProductDetails($this->_mProductId);
+		$this->mProduct = Catalog::GetProductDetails($this->_mProductId);
 
 		if (isset($_SESSION['link_to_continue_shopping']))
 		{
@@ -41,7 +41,7 @@ class Product
 			elseif (isset($continue_shopping['DepartmentId']))
 			{
 				$this->mLinkToContinueShopping =
-					Link::ToDepartment((int)$continue_shopping['DepartmentId'], $page)
+					Link::ToDepartment((int)$continue_shopping['DepartmentId'], $page);
 			}
 			else 
 			{

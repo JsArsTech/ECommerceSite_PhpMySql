@@ -44,7 +44,7 @@ class CategoriesList
 			if (array_key_exists('CategoryId', $continue_shopping))
 			{
 				$this->mSelectedCategory =
-					(int)$continue_shopping['CatgoryId'];
+					(int)$continue_shopping['CategoryId'];
 			}
 		}
 	}

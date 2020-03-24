@@ -12,7 +12,7 @@ require_once BUSINESS_DIR . 'database_handler.php';
 // Load Business Tier
 require_once BUSINESS_DIR . 'catalog.php';
 
-ErrorHandler::SetHandler();
+//ErrorHandler::SetHandler();
 
 // Load the application page template
 require_once PRESENTATION_DIR . 'application.php';

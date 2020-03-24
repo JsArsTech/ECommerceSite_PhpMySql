@@ -27,7 +27,7 @@ class DepartmentsList
             isset($_SESSION['link_to_continue_shopping']))
         {
             $continue_shopping =
-                Link::QueryStringArray($_SESSION['link_to_continue_shopping']);
+                Link::QueryStringToArray($_SESSION['link_to_continue_shopping']);
 
             if (array_key_exists('DepartmentId', $continue_shopping))
             {
