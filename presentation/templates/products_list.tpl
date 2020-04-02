@@ -43,6 +43,32 @@
 							<span class="price">{$obj->mProducts[k].price}</span>
 						{/if}
 					</p>
+
+					{* generate the list of attribute values *}
+					<p class="attributes">
+						{* Parse the list of attributes and attribute values *}
+						{section name=l loop=$obj->mProducts[k].attributes}
+							{* Generate a new select tag? *}
+							{if $smarty.section.l.first || 
+								$obj->mProducts[k].attributes[l].attribute_name != 
+								$obj->mProducts[k].attributes[l.index_prev].attribute_name}
+								{$obj->mProducts[k].attributes[l].attribute_name}:
+								<select name="attr_{$obj->mProducts[k].attributes[l].attribute_name}">
+							{/if}
+							{* Generate a new option tag *}
+							<option value="{$obj->mProducts[k].attributes[l].attribute_value}">
+								{$obj->mProducts[k].attributes[l].attribute_value}
+							</option>
+
+							{* Close the select tag? *}
+							{if $smarty.section.l.last || 
+								$obj->mProducts[k].attributes[l].attribute_name != 
+								$obj->mProducts[k].attributes[l.index_next].attribute_name}
+								</select>
+							{/if}
+						{/section}
+					</p>
+
 				</td>
 				{if $smarty.section.k.index % 2 != 0 && !$smarty.section.k.first || $smarty.section.k.last}
 					</tr>

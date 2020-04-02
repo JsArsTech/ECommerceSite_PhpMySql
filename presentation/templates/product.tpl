@@ -17,6 +17,33 @@
 		<span class="old-price">{$obj->mProduct.price}</span>
 	{/if}
 </p>
+
+{* generate the list of attribute values *}
+<p class="attributes">
+	{* Parse the list of attributes and attribute values *}
+	{section name=k loop=$obj->mProduct.attributes}
+		{* Generate a new select tag? *}
+		{if $smarty.section.k.first || 
+			$obj->mProduct.attributes[k].attribute_name != 
+			$obj->mProduct.attributes[k.index_prev].attribute_name}
+			{$obj->mProduct.attributes[k].attribute_name}:
+			<select name="attr_{$obj->mProduct.attributes[k].attribute_name}">
+		{/if}
+		{* Generate a new option tag *}
+		<option value="{$obj->mProduct.attributes[k].attribute_value}">
+			{$obj->mProduct.attributes[k].attribute_value}
+		</option>
+
+		{* Close the select tag? *}
+		{if $smarty.section.k.last || 
+			$obj->mProducts.attributes[k].attribute_name != 
+			$obj->mProduct.attributes[k.index_next].attribute_name}
+			</select>
+		{/if}
+	{/section}
+</p>
+
+
 {if $obj->mLinkToContinueShopping} 
 	<a href="{$obj->mLinkToContinueShopping}">Continue Shopping</a>
 {/if}

@@ -60,6 +60,9 @@ class Product
 					Link::Build('product_image/' . $this->mProduct['image_2']);
 			}	
 
+			$this->mProduct['attributes'] =
+				Catalog::GetProductAttributes($this->mProduct['product_id']);
+
 			$this->mLocations = Catalog::GetProductLocations($this->_mProductId);
 
 			// Build links for product departments and categories pages
